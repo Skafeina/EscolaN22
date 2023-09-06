@@ -13,7 +13,7 @@ namespace Escola_POO_BASE.Telas
 {
     public partial class TelaCadastraAluno : Form
     {
-        private List<Usuario> _usuarios;
+        //private List<Usuario> _usuarios;
         private List<Aluno> _alunos;
         private Professor _userLogado;
         private Aluno _alunoSelecionado;
@@ -98,6 +98,8 @@ namespace Escola_POO_BASE.Telas
             DgvUsuarios.ClearSelection();
             BtnCadastrar.Enabled = true;
             BtnAlterar.Enabled = false;
+            CbbBuscar.SelectedIndex = 0;
+            TxtBuscar.Focus();
         }
 
         private void BtnCadastrar_Click(object sender, EventArgs e)
@@ -286,6 +288,17 @@ namespace Escola_POO_BASE.Telas
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
             }
+        }
+
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            //Método que clica no botão via código (sozinho)
+            BtnBuscar.PerformClick();
+        }
+
+        private void TelaCadastraAluno_Shown(object sender, EventArgs e)
+        {
+            TxtBuscar.Focus();
         }
     }
 }
